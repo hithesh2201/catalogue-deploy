@@ -7,10 +7,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "tfstate-hiteshshop"     # for collabartion and security reasons we are going to use s3 and dynamodb
-    key    = "catalogue"
-    region = "us-east-1"
-    dynamodb_table = "test"
+
   }
 
 
