@@ -48,7 +48,8 @@ pipeline {
             steps {
                 sh """
                     cd terraform
-                    
+                    terraform apply -var="app_version=$packageversion"
+
                 """
             }
         }
@@ -67,6 +68,7 @@ pipeline {
 
         always {
             echo "Cleaning up..."
+            deleteDir()
             // Add any cleanup steps that should run regardless of success or failure
         }
     }
