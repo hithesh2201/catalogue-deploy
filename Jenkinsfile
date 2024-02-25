@@ -7,7 +7,7 @@ pipeline {
         packageversion= "$packageversion"
     }
     parameters {
-        choice(name: 'environment', choices: ['Dev', 'QA', 'Prod'], description: 'Pick something')
+        choice(name: 'environment', choices: ['dev', 'prod'], description: 'Pick something')
     }
 
     options {
