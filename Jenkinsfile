@@ -4,7 +4,7 @@ pipeline {
     }
     // agent any
     environment {
-        packageversion= "$paramas.packageversion"
+        packageversion= "$packageversion"
     }
     parameters {
         choice(name: 'CHOICE', choices: ['Dev', 'QA', 'Prod'], description: 'Pick something')
