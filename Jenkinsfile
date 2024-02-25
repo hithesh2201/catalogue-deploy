@@ -38,7 +38,8 @@ pipeline {
         stage('plan'){
             steps{
                 sh """
-                    
+                    cd terraform
+                    terraform plan -var="app_version=$packageversion"
                 """
             }
         }
@@ -46,6 +47,7 @@ pipeline {
         stage('apply') {
             steps {
                 sh """
+                    cd terraform
                     
                 """
             }
