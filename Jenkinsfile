@@ -7,7 +7,7 @@ pipeline {
         packageversion= "$packageversion"
     }
     parameters {
-        choice(name: 'CHOICE', choices: ['Dev', 'QA', 'Prod'], description: 'Pick something')
+        choice(name: 'environment', choices: ['Dev', 'QA', 'Prod'], description: 'Pick something')
     }
 
     options {
@@ -25,15 +25,16 @@ pipeline {
             }
         }
 
-        stage('install dependencies') {
+        stage('Init') {
             steps {
                 sh"""
-                    
+                     cd terraform
+                     terraform init --backend-config=${params.environment} -reconfigure
                 """
             }
         }
 
-        stage('Sonar Scan'){
+        stage('plan'){
             steps{
                 sh """
                     
@@ -41,7 +42,7 @@ pipeline {
             }
         }
 
-        stage('Build artifact') {
+        stage('apply') {
             steps {
                 sh """
                     
