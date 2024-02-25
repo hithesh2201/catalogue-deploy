@@ -3,6 +3,6 @@ variable "domain_name" {
   
 }
 
-variable "packageversion" {
+variable "app_version" {
   default = ""
 }
